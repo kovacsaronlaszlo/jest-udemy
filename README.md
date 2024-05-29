@@ -37,3 +37,8 @@ Thorough
     large values
     100% code coverage - not a great indicator
 
+test properties:
+    only, skip, todo, concurrent
+test aliases:
+    it, test, xit, fit
+watch mode
