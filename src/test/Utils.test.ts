@@ -8,18 +8,42 @@ describe("Utils test suite", () => {
 
     beforeEach(() => {
       sut = new StringUtils();
-      console.log("Setup");
     });
 
     afterEach(() => {
       //clearing mocks!
-      console.log("Teardown");
     });
 
     it("should return correct uppercase", () => {
       const actual = sut.toUppercase("abc");
 
       expect(actual).toBe("ABC");
+    });
+
+    it("should throw error on invlaid argument - function", () => {
+      function expectError() {
+        const actual = sut.toUppercase("");
+      }
+
+      expect(expectError).toThrow();
+      expect(expectError).toThrowError("Invalid argument!");
+    });
+
+    it("should throw error on invlaid argument - arrow function", () => {
+      expect(() => {
+        sut.toUppercase("");
+      }).toThrowError("Invalid argument!");
+    });
+
+    it("should throw error on invlaid argument - try catch block", (done) => {
+      try {
+        sut.toUppercase("");
+        done("GetStringInfo should throw error for valid arg!");
+      } catch (error) {
+        expect(error).toBeInstanceOf(Error);
+        expect(error).toHaveProperty("message", "Invalid argument!");
+        done();
+      }
     });
   });
 
