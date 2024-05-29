@@ -24,7 +24,7 @@ export class PasswordChecker {
     };
   }
 
-  public checkAdminPassword(password: string) {
+  public checkAdminPassword(password: string): CheckResult {
     const basicCheck = this.checkPassword(password);
     this.checkForNumber(password, basicCheck.reasons);
     return {
