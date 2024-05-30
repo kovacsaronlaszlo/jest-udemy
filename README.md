@@ -42,3 +42,10 @@ test properties:
 test aliases:
     it, test, xit, fit
 watch mode
+
+Test doubles in Jest
+> stubs
+> fakes
+> mocks
+> spies
+> mocking modules
